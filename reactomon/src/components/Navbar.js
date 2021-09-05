@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
 
     render() {
-        const navbarItems = this.props.items;
-
-        const listItems = navbarItems.map((link) =>
-            <a className="navbar-item" href={link.url}>{link.name}</a>
-        );
-
         return (
-            <div className="navbar">{listItems}</div>
-        );
+            <div className="navbar">
+                <Link to="/">Home</Link>
+                <Link to="/pokemons">Pokemons</Link>
+                <Link to="/types">Types</Link>
+            </div>
+        )
     }
 }
 

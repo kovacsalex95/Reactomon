@@ -1,28 +1,34 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./components/pages/Home";
+import Pokemons from "./components/pages/Pokemons";
+import Types from "./components/pages/Types";
+
 import './App.css';
 
 function App() {
-
-  const navbarItems = [
-    {
-      name: "Home",
-      url: "/"
-    },
-    {
-      name: "Pokemons",
-      url: "/pokemons"
-    },
-    {
-      name: "Types",
-      url: "/types"
-    }
-  ];
-
   return (
-    <div className="wrapper">
-      <Navbar items={navbarItems} />
-      <label>Hello world!</label>
-    </div>
+    <Router>
+
+      <Navbar />
+
+      <Switch>
+        <Route path="/pokemons">
+          <Pokemons />
+        </Route>
+        <Route path="/types">
+          <Types />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+      
+    </Router>
   );
 }
 
