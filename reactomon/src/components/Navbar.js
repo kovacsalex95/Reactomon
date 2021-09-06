@@ -6,7 +6,6 @@ class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
-                <Link to="/">Home</Link>
                 <Link to="/pokemons">Pokemons</Link>
                 <Link to="/types">Types</Link>
             </div>

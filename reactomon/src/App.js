@@ -4,8 +4,8 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/pages/Home";
 import Pokemons from "./components/pages/Pokemons";
+import PokemonDetails from "./components/pages/PokemonDetails";
 import Types from "./components/pages/Types";
 
 import './App.css';
@@ -20,11 +20,11 @@ function App() {
         <Route path="/pokemons">
           <Pokemons />
         </Route>
+        <Route path="/pokemon/">
+          <PokemonDetails />
+        </Route>
         <Route path="/types">
           <Types />
-        </Route>
-        <Route path="/">
-          <Home />
         </Route>
       </Switch>
       
