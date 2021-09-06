@@ -2,25 +2,31 @@ import React, { Component } from 'react';
 import PokemonList from '../PokemonList';
 
 const Pokedex = require('pokedex-promise-v2');
-const p = new Pokedex();
 
 class Pokemons extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            pokemonList: []
+            pokemonList: {}
         };
+        this.updatePokemonList = this.updatePokemonList.bind(this);
+    }
+
+    updatePokemonList(result) {
+        this.setState({
+            pokemonList: result
+        });
     }
 
     componentDidMount() {
-        const fetchPokemonList = async() => {
-            const { pokemonList } = await p.resource(['/api/v2/pokemon']);
-            this.setState({
-                pokemonList
-            });
+        const interval = {
+            limit: 10,
+            offset: 34
         };
-        fetchPokemonList();
+        const p = new Pokedex();
+
+        p.getPokemonsList(interval).then(this.updatePokemonList);
     }
 
     render() {
